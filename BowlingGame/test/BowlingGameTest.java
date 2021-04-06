@@ -32,7 +32,6 @@ public class BowlingGameTest {
     }
 
     @Test
-    @Ignore("until we get design right")
     public void testOneSpare() {
         game.roll(5);
         game.roll(5); //spare
