@@ -11,27 +11,11 @@ public class BowlingGameTest {
         game = new Game();
     }
 
-    private void rollMany(int n, int pins) {
-        for (int i = 0; i < n; i++) {
-            game.roll(pins);
-        }
-    }
-
-    private void rollSpare() {
-        game.roll(5);
-        game.roll(5);
-    }
-
-    private void rollStrike() {
-        game.roll(10);
-    }
-
     @Test
     public void testGutterGame() {
         rollMany(20, 0);
         assertEquals(0, game.score());
     }
-
 
     @Test
     public void testAllOnes() {
@@ -68,5 +52,20 @@ public class BowlingGameTest {
     public void testPerfectGame() {
         rollMany(12, 10);
         assertEquals(300, game.score());
+    }
+
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            game.roll(pins);
+        }
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
+
+    private void rollStrike() {
+        game.roll(10);
     }
 }
