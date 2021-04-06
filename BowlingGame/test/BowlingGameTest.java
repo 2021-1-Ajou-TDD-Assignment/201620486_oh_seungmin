@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -28,5 +29,15 @@ public class BowlingGameTest {
     public void testAllOnes() {
         rollMany(20, 1);
         assertEquals(20, game.score());
+    }
+
+    @Test
+    @Ignore("until we get design right")
+    public void testOneSpare() {
+        game.roll(5);
+        game.roll(5); //spare
+        game.roll(3);
+        rollMany(17, 0);
+        assertEquals(16, game.score());
     }
 }
