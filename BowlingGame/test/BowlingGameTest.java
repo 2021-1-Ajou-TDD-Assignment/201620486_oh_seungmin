@@ -1,5 +1,4 @@
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -18,6 +17,11 @@ public class BowlingGameTest {
         }
     }
 
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
+
     @Test
     public void testGutterGame() {
         rollMany(20, 0);
@@ -33,8 +37,7 @@ public class BowlingGameTest {
 
     @Test
     public void testOneSpare() {
-        game.roll(5);
-        game.roll(5); //spare
+        rollSpare();
         game.roll(3);
         rollMany(17, 0);
         assertEquals(16, game.score());
